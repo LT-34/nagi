@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐 Nagi！🎉</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 50px;
+            margin-top: 100px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            animation: floatUp 5s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes floatUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-800px); }
+        }
+        audio {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎂 生日快乐，Nagi！ 🎉</h1>
+    <p>愿你的每一天都充满欢笑与爱！💖</p>
+    <audio controls autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-birthday.mp3" type="audio/mp3">
+        你的浏览器不支持音频播放。
+    </audio>
+    <script>
+        function createBalloon() {
+            let balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            document.body.appendChild(balloon);
+            balloon.style.left = Math.random() * window.innerWidth + 'px';
+            balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            setTimeout(() => balloon.remove(), 5000);
+        }
+        setInterval(createBalloon, 500);
+    </script>
+</body>
+</html>
